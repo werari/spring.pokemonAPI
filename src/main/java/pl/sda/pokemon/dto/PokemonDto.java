@@ -17,7 +17,7 @@ import java.util.List;
 public class PokemonDto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private List<AbilitiesDto> abilities;
     private SpeciesDto speciesDto;
     private int base_experience;
@@ -27,7 +27,7 @@ public class PokemonDto {
 
     @JsonCreator
     public PokemonDto(
-            @JsonProperty("id") int id,
+            @JsonProperty("id") Long id,
             @JsonProperty("abilities") List<AbilitiesDto> abilities,
             @JsonProperty("speciesDto") SpeciesDto speciesDto,
             @JsonProperty("base_experience") int base_experience,

@@ -32,10 +32,9 @@ public class AbilityDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn (name = "abilityList", nullable = false)
+    @OneToOne (cascade = CascadeType.ALL)
     private AbilitiesDomain abilitiesDomain;
 
 }

@@ -16,13 +16,13 @@ import javax.persistence.*;
 @Entity
 public class SpeciesDomain {
     private String name;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "speciesDomain")
     private PokemonDomain pokemonDomain;
     private String url;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     @Override
     public String toString() {
         return "SpeciesDomain{" +

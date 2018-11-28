@@ -9,8 +9,7 @@ import lombok.Setter;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
@@ -21,10 +20,10 @@ import java.util.List;
 public class AbilitiesDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
-    @OneToMany(mappedBy = "abilitiesDomain")
-    private List<AbilityDomain> abilityList= new ArrayList<>();
+    @OneToOne(mappedBy = "abilitiesDomain", cascade = CascadeType.ALL)
+    private AbilityDomain ability;
     @ManyToOne
     @JoinColumn(name = "abilities", nullable = false)
     private PokemonDomain pokemonDomain;
@@ -35,12 +34,10 @@ public class AbilitiesDomain {
     public String toString() {
         return "AbilitiesDomain{" +
                 "id=" + id +
-                ", abilityList=" + abilityList +
+                ", ability=" + ability +
                 ", pokemonDomain=" + pokemonDomain +
                 ", slot=" + slot +
                 ", is_hidden=" + is_hidden +
                 '}';
     }
-
-
 }
