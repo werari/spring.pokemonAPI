@@ -45,8 +45,8 @@ public class PokemonServiceImpl implements PokemonService {
 
 
 
-        AbilitiesDomain abilitiesParsedFromDto = new AbilitiesDomain();
-        List<AbilitiesDto> abilitiesDto = pokemonDto.getAbilities();
+      //  AbilitiesDomain abilitiesParsedFromDto = new AbilitiesDomain();
+       // List<AbilitiesDto> abilitiesDto = pokemonDto.getAbilities();
        // abilitiesParsedFromDto.setSlot(abilitiesDto.);
 
 

@@ -60,23 +60,23 @@ public class PokemonController {
 
         speciesDomain.setName(speciesName);
         speciesDomain.setUrl(url);
-        speciesDomain.setPokemonDomainS(pokemonDomain);
+
 
         pokemonDomain.setName(name);
         pokemonDomain.setSpeciesDomain(speciesDomain);
 
         PokemonDomain save = pokemonRepository.save(pokemonDomain);
         Long idNewPokemon = save.getId();
-        //return pokemon id after save to db
+
         return idNewPokemon ;
     }
 
     @PostMapping("/addPokemonBody")
-    public int addNewPokemonByBody() {
+    public Long addNewPokemonByBody(@RequestBody PokemonDto pokemonDto) {
 
-        //return pokemon id after save to db
-
-        return 0;
+            PokemonDomain save = pokemonRepository.save(pokemonService.convertPokemon(pokemonDto));
+            //return pokemon id after save to db
+            return save.getId();
 
     }
 

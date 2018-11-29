@@ -1,6 +1,7 @@
 package pl.sda.pokemon.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import java.util.List;
 
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @Getter
 @Setter
@@ -22,6 +24,7 @@ public class PokemonDto {
     private SpeciesDto species;
     private int base_experience;
     private String name;
+    @JsonProperty(value = "order")
     private int orderPokemon;
 
 
@@ -32,13 +35,13 @@ public class PokemonDto {
             @JsonProperty("species") SpeciesDto species,
             @JsonProperty("base_experience") int base_experience,
             @JsonProperty("name") String name,
-            @JsonProperty("orderPokemon") int orderPokemon) {
+            @JsonProperty("order") int orderPokemon) {
         this.abilities = abilities;
         this.species = species;
         this.base_experience = base_experience;
         this.name = name;
         this.orderPokemon = orderPokemon;
-        this.id = id;
+
 
 
     }
@@ -46,7 +49,7 @@ public class PokemonDto {
     @Override
     public String toString() {
         return "PokemonDto{" +
-                "id=" + id +
+
 //                ", abilities=" + abilities +
 //                ", species=" + species +
 //                ", base_experience=" + base_experience +

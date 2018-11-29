@@ -3,6 +3,7 @@ package pl.sda.pokemon.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,8 @@ public class PokemonDomain {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany(mappedBy = "pokemonDomain", cascade = CascadeType.ALL)
-    private List<AbilitiesDomain> abilities= new ArrayList<>();
-    @OneToOne (mappedBy = "pokemonDomainS", cascade = CascadeType.ALL)
+    private List<AbilitiesDomain> abilities = new ArrayList<>();
+    @OneToOne(mappedBy = "pokemonDomainS", cascade = CascadeType.ALL)
     private SpeciesDomain speciesDomain;
     private int base_experience;
     private String name;
@@ -47,11 +48,11 @@ public class PokemonDomain {
     public String toString() {
         return "PokemonDomain{" +
                 "id=" + id +
-//                ", abilities=" + abilities +
-//                ", speciesDomain=" + speciesDomain +
-//                ", base_experience=" + base_experience +
+                ", abilities=" + abilities +
+                ", speciesDomain=" + speciesDomain +
+                ", base_experience=" + base_experience +
                 ", name='" + name + '\'' +
-               // ", orderPokemon=" + orderPokemon +
+                ", orderPokemon=" + orderPokemon +
                 '}';
     }
 }
