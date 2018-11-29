@@ -3,7 +3,6 @@ package pl.sda.pokemon.services;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -13,7 +12,6 @@ import pl.sda.pokemon.domain.SpeciesDomain;
 import pl.sda.pokemon.dto.AbilitiesDto;
 import pl.sda.pokemon.dto.PokemonDto;
 import pl.sda.pokemon.dto.SpeciesDto;
-import pl.sda.pokemon.repository.PokemonRepository;
 
 import java.util.List;
 
@@ -40,10 +38,12 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDomain convertPokemon(PokemonDto pokemonDto) {
-//        SpeciesDomain speciesParsedFromDto = new SpeciesDomain();
-//        SpeciesDto speciesDto = pokemonDto.getSpeciesDto();
-//        speciesParsedFromDto.setName(speciesDto.getName());
-//        speciesParsedFromDto.setUrl(speciesDto.getUrl());
+        SpeciesDomain speciesParsedFromDto = new SpeciesDomain();
+        SpeciesDto species = pokemonDto.getSpecies();
+        speciesParsedFromDto.setName(species.getName());
+        speciesParsedFromDto.setUrl(species.getUrl());
+
+
 
         AbilitiesDomain abilitiesParsedFromDto = new AbilitiesDomain();
         List<AbilitiesDto> abilitiesDto = pokemonDto.getAbilities();
@@ -52,7 +52,7 @@ public class PokemonServiceImpl implements PokemonService {
 
         PokemonDomain pokemonParsedFromDto = new PokemonDomain();
         pokemonParsedFromDto.setName(pokemonDto.getName());
-       // pokemonParsedFromDto.setSpeciesDomain(speciesParsedFromDto);
+      pokemonParsedFromDto.setSpeciesDomain(speciesParsedFromDto);
 
         return pokemonParsedFromDto;
     }

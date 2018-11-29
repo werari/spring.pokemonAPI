@@ -18,7 +18,7 @@ public class PokemonDomain {
     private Long id;
     @OneToMany(mappedBy = "pokemonDomain", cascade = CascadeType.ALL)
     private List<AbilitiesDomain> abilities= new ArrayList<>();
-    @OneToOne (mappedBy = "pokemonDomain", cascade = CascadeType.ALL)
+    @OneToOne (mappedBy = "pokemonDomainS", cascade = CascadeType.ALL)
     private SpeciesDomain speciesDomain;
     private int base_experience;
     private String name;
@@ -47,11 +47,11 @@ public class PokemonDomain {
     public String toString() {
         return "PokemonDomain{" +
                 "id=" + id +
-                ", abilities=" + abilities +
-                ", speciesDomain=" + speciesDomain +
-                ", base_experience=" + base_experience +
+//                ", abilities=" + abilities +
+//                ", speciesDomain=" + speciesDomain +
+//                ", base_experience=" + base_experience +
                 ", name='" + name + '\'' +
-                ", orderPokemon=" + orderPokemon +
+               // ", orderPokemon=" + orderPokemon +
                 '}';
     }
 }

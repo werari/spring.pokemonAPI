@@ -16,20 +16,19 @@ import javax.persistence.*;
 @Entity
 public class SpeciesDomain {
     private String name;
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "speciesDomain")
-    private PokemonDomain pokemonDomain;
+    @OneToOne
+    @JoinColumn (name = "fk")
+    private PokemonDomain pokemonDomainS;
     private String url;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Override
     public String toString() {
         return "SpeciesDomain{" +
                 "name='" + name + '\'' +
-                ", url='" + url + '\'' +
                 '}';
     }
-
 }
 

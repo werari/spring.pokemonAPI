@@ -26,4 +26,10 @@ public class PokemonApplication {
 //        return new RestTemplateBuilder();
 //    }
 
+    //todo
+    //add post request to add new custom pokemon
+    //add exception handling when we ask for id where pokemon does not exist
+    //add simple security
+    //use logger!!!
+
 }
