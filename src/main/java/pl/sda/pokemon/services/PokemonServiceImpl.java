@@ -35,24 +35,24 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
 
-
     @Override
     public PokemonDomain convertPokemon(PokemonDto pokemonDto) {
         SpeciesDomain speciesParsedFromDto = new SpeciesDomain();
+        PokemonDomain pokemonParsedFromDto = new PokemonDomain();
         SpeciesDto species = pokemonDto.getSpecies();
         speciesParsedFromDto.setName(species.getName());
         speciesParsedFromDto.setUrl(species.getUrl());
+        speciesParsedFromDto.setPokemonDomainS(pokemonParsedFromDto);
+
+
+        //  AbilitiesDomain abilitiesParsedFromDto = new AbilitiesDomain();
+        // List<AbilitiesDto> abilitiesDto = pokemonDto.getAbilities();
+        // abilitiesParsedFromDto.setSlot(abilitiesDto.);
 
 
 
-      //  AbilitiesDomain abilitiesParsedFromDto = new AbilitiesDomain();
-       // List<AbilitiesDto> abilitiesDto = pokemonDto.getAbilities();
-       // abilitiesParsedFromDto.setSlot(abilitiesDto.);
-
-
-        PokemonDomain pokemonParsedFromDto = new PokemonDomain();
         pokemonParsedFromDto.setName(pokemonDto.getName());
-      pokemonParsedFromDto.setSpeciesDomain(speciesParsedFromDto);
+        pokemonParsedFromDto.setSpeciesDomain(speciesParsedFromDto);
 
         return pokemonParsedFromDto;
     }

@@ -1,5 +1,7 @@
 package pl.sda.pokemon.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +22,7 @@ public class PokemonDomain {
     @OneToMany(mappedBy = "pokemonDomain", cascade = CascadeType.ALL)
     private List<AbilitiesDomain> abilities = new ArrayList<>();
     @OneToOne(mappedBy = "pokemonDomainS", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private SpeciesDomain speciesDomain;
     private int base_experience;
     private String name;

@@ -1,5 +1,7 @@
 package pl.sda.pokemon.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +20,7 @@ public class SpeciesDomain {
     private String name;
     @OneToOne
     @JoinColumn (name = "fk")
+    @JsonBackReference
     private PokemonDomain pokemonDomainS;
     private String url;
     @Id
